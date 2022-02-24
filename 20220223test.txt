@@ -1,0 +1,48 @@
+問題①
+Laravelは①のフレームワークの一つです。
+MVCのMは②でアプリケーションの扱うデータと業務処理を指します。
+Vは③でユーザーへの出力を指します。
+Cは④で必要な処理を②や③に伝える役割を担います。
+⑤とはクライアントがサーバーにして欲しいことを依頼するための手段です。
+⑤にはリクエストの種類に応じて、⑥、⑦、⑧、DELETEに分かれます。
+⑨とは、クライアントのリクエスト内容とサーバーの処理をひもづける作業を指します。
+Webページの具体的な処理は④を使って行います。
+Laravelでは主に、⑩と呼ばれるテンプレートエンジンを利用してレンダリングを行います。
+
+①PHP　②Model ③View ④Controller ⑤HTTPメッソド
+⑥GET　⑦POST　⑧PUT　⑨ルーティング　⑩Blade
+
+
+問題②
+web.php
+<?php
+
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TestController;
+
+Route::get('/building', function () {
+    return '建物です';
+});
+Route::get('/building/{room}', function ($room) {
+    return '部屋番号は'. $room. 'です';
+});
+?>
+
+
+
+TestController.php
+
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+class TestController extends Controller
+{
+    public function index()
+    {
+        return "test";
+    }
+}
+?>
